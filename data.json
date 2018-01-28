@@ -1,0 +1,22 @@
+{
+ "loginData":[
+  {"title":"订单管理","value":"2017-10-10","badge":"3","task_a_id":5,"user_id":1},
+  {"title":"商品管理","value":"2017-11-10","badge":"2","task_a_id":6,"user_id":1},
+  {"title":"员工管理","value":"2017-04-10","badge":"4","task_a_id":7,"user_id":1},
+  {"title":"货物管理","value":"2017-06-10","badge":"5","task_a_id":8,"user_id":1}
+ ],
+ "menuData":[
+  {"title":"计划一","value":"2017-10-10","badge":"管理员","task_a_id":5,"task_b_id":1},
+  {"title":"计划二","value":"2017-11-10","badge":"录入员","task_a_id":5,"task_b_id":2},
+  {"title":"计划三","value":"2017-04-10","badge":"检查员","task_a_id":5,"task_b_id":3},
+  {"title":"计划一","value":"2017-06-10","badge":"管理员","task_a_id":6,"task_b_id":4},
+  {"title":"计划二","value":"2017-06-10","badge":"审批员","task_a_id":6,"task_b_id":5},
+  {"title":"计划一","value":"2017-10-10","badge":"录入员","task_a_id":7,"task_b_id":6},
+  {"title":"计划二","value":"2017-11-10","badge":"管理员","task_a_id":7,"task_b_id":7},
+  {"title":"计划三","value":"2017-04-10","badge":"录入员","task_a_id":7,"task_b_id":8},
+  {"title":"计划一","value":"2017-06-10","badge":"管理员","task_a_id":7,"task_b_id":9}
+ ],
+ "contentData":[
+     [{"title":"责任人","value":"李四"},{"title":"时间","value":"2017-07-07"},{"title":"主题","value":"下沙xxxx订单"},{"title":"编号","value":"0003203404"}]
+   ]
+}

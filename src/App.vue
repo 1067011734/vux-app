@@ -1,0 +1,78 @@
+<template>
+ <div id="app">
+   <keep-alive>
+     <router-view></router-view>
+   </keep-alive>
+   <tabbar style="position:fixed;z-index:99">
+    <tabbar-item selected :link="{path:'/home'}"  :badge='badgeFlag?"new":""'>
+    <i slot="icon" class="icon-msg iconfont"></i>
+    <span slot="label">消息</span>
+    </tabbar-item>
+     <tabbar-item :link="{path:'/work'}">
+     <i slot="icon" class="icon-work iconfont"></i>
+     <span slot="label" >工作台</span>
+    </tabbar-item>
+     <tabbar-item :link="{path:'/user'}">
+     <i slot="icon" class="icon-weibiaoti1 iconfont"></i>
+      <span slot="label">个人中心</span>
+     </span>
+    </tabbar-item>
+   </tabbar>
+ </div>
+</template>
+
+<script type="text/ecmascript-6">
+import {Tabbar, TabbarItem, Group, Cell, Badge} from 'vux'
+import {mapState} from 'vuex'
+export default {
+  data () {
+    return {
+    }
+  },
+  components: {
+    Tabbar,
+    TabbarItem,
+    Group,
+    Cell,
+    Badge
+  },
+  mounted () {
+  },
+  methods: {
+
+  },
+  computed: {
+    ...mapState({
+      tabbarFlag: state => state.app.tabbarFlag,
+      badgeFlag: state => state.app.badgeFlag
+    })
+  }
+}
+</script>
+
+<style lang="stylus" rel="stylesheet/stylus">
+html,body,.router-view
+ background-color: #fbfbfb
+#app  
+ .badge-value 
+  display: inline-block!important
+ .vertical-middle 
+  vertical-align: middle
+ .weui-tabbar
+  background-color: #fff
+ .vux-header
+  background-image: radial-gradient(circle 248px at center, #3689de 0%, #3f8bd8 47%, #39699a 100%)
+  background-color: #3689de
+  .vux-header-title
+   letter-spacing: 0.2em 
+ .weui-tabbar__item.weui-bar__item_on 
+  .weui-tabbar__label
+   color: #5E86AF
+  .weui-tabbar__icon
+   i
+    color: #5E86AF
+.router-content
+  padding-top:55px
+  padding-bottom:50px    
+
+</style>

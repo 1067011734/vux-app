@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <title>app</title>
+    <script type="text/javascript"> 
+     // 扩展API是否准备好，如果没有则监听“plusready"事件
+     if(window.plus){
+         plusReady();
+     }else{ 
+         document.addEventListener( "plusready", plusReady, false );
+     }
+     // 扩展API准备完成后要执行的操作
+     function plusReady(){
+      var webview = plus.webview.currentWebview();
+      plus.key.addEventListener('backbutton', function() {
+          webview.canBack(function(e) {
+              if(e.canBack) {
+                  webview.back();
+              } else {
+                  webview.close(); //hide,quit
+                  //plus.runtime.quit();
+              }
+          })
+      });
+     }
+    </script> 
+  </head>
+  <body>
+    <div id="app-box"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
