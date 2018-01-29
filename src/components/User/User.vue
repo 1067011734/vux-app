@@ -8,7 +8,7 @@
      <div class="picture">
        <label class="icon" for="ipt_upload">
         <input type="file" name="" class="upload" id="ipt_upload" @change="_upload">
-        <div v-if="user_img">
+        <div v-if="user_img" class="user_img_wrap">
         <img :src="user_img" alt="" class="user_img" accept="image/*" capture="camera"/>
         </div>
         <div v-else>
@@ -125,10 +125,13 @@ export default {
  .content-wrap
   .picture
    display inline-block
-  .user_img
+  .user_img_wrap
    width :55px
    height :55px
-   border-radius :50%
+   border-radius :50% 
+   overflow hidden
+   .user_img
+    width :100%
   .upload
     display none
   .icon

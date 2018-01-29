@@ -9,7 +9,7 @@ Vue.use(Router)
 const routes = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/user'
   },
   {
     path: '/home',
