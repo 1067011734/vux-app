@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HomeContent from 'components/Home/components/Content'
-// import HomeSubmit from 'components/Home/components/Submit'
-// import HomeReject from 'components/Home/components/Reject'
 
 Vue.use(Router)
 
@@ -30,7 +27,16 @@ const routes = [
             name: 'homeContent',
             component: resolve => {
               require(['../components/Home/components/Content'], resolve)
-            }
+            },
+            children: [
+              {
+                path: 'menu',
+                name: 'homeSubmit',
+                component: resolve => {
+                  require(['../components/Home/components/Submit'], resolve)
+                }
+              }
+            ]
           }
         ]
       }
@@ -40,23 +46,6 @@ const routes = [
       //   component: HomeContent
       // },
       // {
-      //   path: 'Submit',
-      //   name: 'homeSubmit',
-      //   component: HomeSubmit
-      // },
-      // {
-      //   path: 'reject',
-      //   name: 'homeReject',
-      //   component: HomeReject
-      // },
-      // {
-      //   path: 'planExamination',
-      //   component: PlanExamination
-      // },
-      // {
-      //   path: 'projectExamination',
-      //   component: ProjectExamination
-      // }
     ]
   },
   {
@@ -83,4 +72,3 @@ const router = new Router({
   routes
 })
 export default router
-// export default routes

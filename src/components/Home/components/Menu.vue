@@ -1,7 +1,6 @@
 <template>
  <div>
-    <x-header style="position:fixed;top:0;left:0;z-index:99;width:100%">{{title}}</x-header>
-    <div class="router-content">
+    <x-header>{{title}}</x-header>
      <group>
          <cell is-link :title="item.title"  v-for="item in groupData" :key="item.id"  @click.native="_go(item)">
            <div class="badge-value">
@@ -10,10 +9,9 @@
            </div>
          </cell>
      </group>
-    </div>
     <transition name="move">
      <router-view class="router-view"></router-view>
-  </transition> 
+    </transition> 
  </div>
 </template>
 

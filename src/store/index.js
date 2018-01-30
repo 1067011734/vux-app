@@ -5,9 +5,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     login: {},
-    tabbarShow: false,
     app: {
-      tabbarFlag: false,
       badgeFlag: true
     }
   },

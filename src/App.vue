@@ -53,7 +53,8 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus">
 html,body,.router-view
  background-color: #fbfbfb
-#app  
+#app
+ margin-bottom 55px  
  .badge-value 
   display: inline-block!important
  .vertical-middle 
@@ -70,9 +71,6 @@ html,body,.router-view
    color: #5E86AF
   .weui-tabbar__icon
    i
-    color: #5E86AF
-.router-content
-  padding-top:55px
-  padding-bottom:50px    
+    color: #5E86AF   
 
 </style>

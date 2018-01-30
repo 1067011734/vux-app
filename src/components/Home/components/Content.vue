@@ -1,7 +1,7 @@
 <template>
- <div class="home-content">
-   <x-header :right-options="{showMore: true}" @on-click-more="meuns.isShow = true" style="position:fixed;top:0;left:0;z-index:99;width:100%">{{title}}</x-header>
-   <div class="router-content">
+ <div>
+  <div class="home-content">
+   <x-header :right-options="{showMore: true}" @on-click-more="meuns.isShow = true">{{title}}</x-header>
      <group>
       <div v-for="item in groupData" >
        <cell :title="item.title" :value="item.value"></cell>
@@ -9,11 +9,19 @@
        <x-switch title="详情" :value-map="[false, true]" v-model="groupData2IsShow"></x-switch>
      </group>
       <div v-if="groupData2IsShow">
-       <form-preview v-for="item in groupData2"  :key="item.elem_id" :body-items="item"></form-preview>
+       <br>
+       <form-preview header-label='付款金额' header-value="¥2400.00" :body-items="list" :footer-buttons="buttons1"></form-preview>
+       <br>
+       <form-preview header-label='付款金额' header-value="¥2400.00" :body-items="list" :footer-buttons="buttons1"></form-preview>
+       <br>
+       <form-preview header-label='付款金额' header-value="¥2400.00" :body-items="list" :footer-buttons="buttons1"></form-preview>
       </div>
-   </div>
-         <actionsheet v-model="meuns.isShow" :menus="meuns.list" @on-click-menu="menuClick"></actionsheet>
+      <transition name="move">
+       <router-view class="router-view"></router-view>
+      </transition>
+      <actionsheet v-model="meuns.isShow" :menus="meuns.list" @on-click-menu="menuClick"></actionsheet>
  </div>
+</div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -37,9 +45,27 @@ export default {
           2: '驳回'
         }
       },
-      mdid: '',
-      djid: '',
-      vou_no: ''
+      list: [{
+        label: '货物',
+        value: '纯棉'
+      }, {
+        label: '数量',
+        value: '24'
+      }, {
+        label: '单价',
+        value: '100'
+      }, {
+        label: '甲方',
+        value: '浙江滴滴滴滴有限公司'
+      },
+      {
+        label: '备注',
+        value: '这趟货要尽快使用'
+      }],
+      buttons1: [{
+        style: 'primary',
+        text: '查看更多'
+      }]
     }
   },
   components: {
@@ -58,28 +84,13 @@ export default {
     })
   },
   watch: {
-    groupData2IsShow (val) {
-      console.info(this.groupData)
-      // if (!this.groupData2.length) {
-      //   let {mdid, djid, vou_no} = this.$data
-      //   this.$axios.get(`${serverURL}/phone/P${mdid + djid}/P${mdid + djid}_c`, {
-      //     params: {
-      //       vou_no
-      //     }
-      //   })
-      // .then((response) => {
-      //   console.info(response.data.elems[0])
-      //   this.groupData2 = response.data.elems
-      // })
-      // }
-    }
   },
   mounted () {
 
   },
   methods: {
     menuClick (menuKey, menuItem) {
-      this.$router.push({name: 'home'})
+      this.$router.push({name: 'homeSubmit', params: {titleFlag: menuKey}})
     }
   }
 }
@@ -87,8 +98,12 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
 .home-content
- .vux-form-preview
-  margin-top :10px
- .weui-form-preview__hd
-  display :none
+ width 100%
+ height 100%
+ overflow auto 
+ .content-wrap
+  flex 1
+ .weui-form-preview__btn_primary 
+  color: #FF9900
+  letter-spacing: 4px
 </style>

@@ -18,7 +18,7 @@
      </div>
     <div class="content">
        <div class="name">王经理</div>
-       <div class="job"><i  class="icon-job iconfont"></i>IT技术部门</div>
+       <div class="job">职位:<span>IT技术部门</span></div>
     </div>
    </div>
   </div>
@@ -148,8 +148,8 @@ export default {
     line-height: 30px
    .job
     font-size :14px 
-    .icon-job
-     margin-right :5px
+    span
+     margin-left :5px
 .cell-icon
  color:#379ef1
  margin-right :10px  

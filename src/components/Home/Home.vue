@@ -1,6 +1,6 @@
 <template>
  <div>
-    <x-header :left-options="{showBack: false}" style="position:fixed;top:0;left:0;z-index:99;width:100%">
+    <x-header :left-options="{showBack: false}">
       <span>消息</span>
     </x-header>
     <div class="router-content">
