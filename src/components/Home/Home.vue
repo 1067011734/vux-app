@@ -41,9 +41,13 @@ export default {
     if (data) {
       next(vm => {
         let _badgeFlag = vm.$store.state.app.badgeFlag
+        let _tabbarFlag = vm.$store.state.app.tabbarFlag
         let _canGroupData = Boolean(data.length)
         if (_canGroupData !== _badgeFlag) {
           vm.$store.commit('appBadgeFlagToggle')
+        }
+        if (!_tabbarFlag) {
+          vm.$store.commit('appTabbarFlagShow')
         }
         vm.groupData = data
       })
@@ -79,9 +83,13 @@ export default {
     z-index: 101
     width: 100%
     height :100%
+    overflow auto
     &.move-enter-active, &.move-leave-active
       transition: all 0.2s linear
     &.move-enter, &.move-leave-active
       transform: translate3d(100%, 0, 0)
+  .router-view::-webkit-scrollbar
+    width: 0;
+    height: 0;    
 </style>
 

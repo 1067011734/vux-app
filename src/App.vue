@@ -3,21 +3,24 @@
    <keep-alive>
      <router-view></router-view>
    </keep-alive>
-   <tabbar style="position:fixed;z-index:99">
-    <tabbar-item selected :link="{path:'/home'}"  :badge='badgeFlag?"new":""'>
-    <i slot="icon" class="icon-msg iconfont"></i>
-    <span slot="label">消息</span>
-    </tabbar-item>
-     <tabbar-item :link="{path:'/work'}">
-     <i slot="icon" class="icon-work iconfont"></i>
-     <span slot="label" >工作台</span>
-    </tabbar-item>
-     <tabbar-item :link="{path:'/user'}">
-     <i slot="icon" class="icon-weibiaoti1 iconfont"></i>
-      <span slot="label">个人中心</span>
-     </span>
-    </tabbar-item>
-   </tabbar>
+   <div v-show="tabbarFlag">
+    <tabbar style="position:fixed;z-index:99">
+      <tabbar-item selected :link="{path:'/home'}"  :badge='badgeFlag?"new":""'>
+      <i slot="icon" class="icon-msg iconfont"></i>
+      <span slot="label">消息</span>
+      </tabbar-item>
+      <tabbar-item :link="{path:'/work'}">
+      <i slot="icon" class="icon-work iconfont"></i>
+      <span slot="label" >工作台</span>
+      </tabbar-item>
+      <tabbar-item :link="{path:'/user'}">
+      <i slot="icon" class="icon-weibiaoti1 iconfont"></i>
+        <span slot="label">个人中心</span>
+      </span>
+      </tabbar-item>
+    </tabbar>
+   </div>
+   
  </div>
 </template>
 

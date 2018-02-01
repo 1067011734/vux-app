@@ -105,7 +105,7 @@ export default {
         }
       }
       // oFReader.readAsDataURL(oFile)
-      console.info('change', file, file.type, /^image/.test(file.type), file.type)
+      // console.info('change', file, file.type, /^image/.test(file.type), file.type)
     }
   }
 }

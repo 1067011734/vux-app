@@ -37,10 +37,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     before (app) {
       app.get('/api/login', (req, res) => {
-        res.json({
-          errno: 0,
-          data: loginData
-        })
+        const query = req.query
+        if (query.userID === 'admin' && query.userID === 'admin') {
+          res.json({
+            errno: 0,
+            data: loginData
+          })
+        } else {
+          res.json({
+            errno: 1
+          })
+        }
       }),
       app.get('/api/task_b', (req, res) => {
         res.json({

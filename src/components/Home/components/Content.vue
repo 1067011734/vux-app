@@ -98,9 +98,6 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
 .home-content
- width 100%
- height 100%
- overflow auto 
  .content-wrap
   flex 1
  .weui-form-preview__btn_primary 

@@ -34,6 +34,8 @@ export default {
     }
   },
   beforeRouteLeave (to, form, next) {
+    this.loginData.userID = ''
+    this.loginData.passWord = ''
     next()
   },
   mounted () {
@@ -58,13 +60,13 @@ export default {
       .then((response) => {
         const json = response.data
         const {data} = json
-        // if (data.error) {
-        //   this.$vux.alert.show({
-        //     title: '警告',
-        //     content: '用户名密码账号不匹配!'
-        //   })
-        //   return
-        // }
+        if (json.errno) {
+          this.$vux.alert.show({
+            title: '警告',
+            content: '用户名密码账号不匹配!'
+          })
+          return
+        }
         const loginInfo = {...params}
         this.$root.loginInfo = loginInfo
         this.$router.push({name: 'home', params: {data: data}})
