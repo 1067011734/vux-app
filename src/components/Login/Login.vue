@@ -34,9 +34,9 @@ export default {
     }
   },
   beforeRouteLeave (to, form, next) {
+    next()
     this.loginData.userID = ''
     this.loginData.passWord = ''
-    next()
   },
   mounted () {
 
