@@ -3,18 +3,16 @@
   <div class="home-content">
    <x-header :right-options="{showMore: true}" @on-click-more="meuns.isShow = true">{{title}}</x-header>
      <group>
-      <div v-for="item in groupData" >
+      <div v-for="item in contentList" >
        <cell :title="item.title" :value="item.value"></cell>
       </div>
-       <x-switch title="详情" :value-map="[false, true]" v-model="groupData2IsShow"></x-switch>
+       <x-switch title="详情" :value-map="[false, true]" v-model="goodsFlag"></x-switch>
      </group>
-      <div v-if="groupData2IsShow">
-       <br>
-       <form-preview header-label='付款金额' header-value="¥2400.00" :body-items="list" :footer-buttons="buttons1"></form-preview>
-       <br>
-       <form-preview header-label='付款金额' header-value="¥2400.00" :body-items="list" :footer-buttons="buttons1"></form-preview>
-       <br>
-       <form-preview header-label='付款金额' header-value="¥2400.00" :body-items="list" :footer-buttons="buttons1"></form-preview>
+      <div v-if="goodsFlag">
+        <div v-for="item in goodsList" >
+          <br>
+          <form-preview header-label='付款金额' :header-value="item.title" :body-items="item.list" :footer-buttons="buttons1"></form-preview>
+        </div>
       </div>
       <transition name="move">
        <router-view class="router-view"></router-view>
@@ -30,14 +28,12 @@ import {XHeader, Group, Cell, XSwitch, FormPreview, Actionsheet} from 'vux'
 export default {
   data () {
     return {
-      groupData: [
+      contentList: [
 
       ],
+      goodsList: [],
       title: '消息',
-      groupData2: [
-
-      ],
-      groupData2IsShow: false,
+      goodsFlag: false,
       meuns: {
         isShow: false,
         list: {
@@ -45,23 +41,6 @@ export default {
           2: '驳回'
         }
       },
-      list: [{
-        label: '货物',
-        value: '纯棉'
-      }, {
-        label: '数量',
-        value: '24'
-      }, {
-        label: '单价',
-        value: '100'
-      }, {
-        label: '甲方',
-        value: '浙江滴滴滴滴有限公司'
-      },
-      {
-        label: '备注',
-        value: '这趟货要尽快使用'
-      }],
       buttons1: [{
         style: 'primary',
         text: '查看更多'
@@ -78,8 +57,34 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     const {data, title} = to.params
+    const {content, goods} = data
+    console.info(content, goods)
+    const goodsList = []
+    for (let item of goods) {
+      const {customer, name, notes, number, price} = item
+      const title = `¥${item.price * item.number}`
+      const list = [{
+        label: '货物',
+        value: name
+      }, {
+        label: '数量',
+        value: number
+      }, {
+        label: '单价',
+        value: price
+      }, {
+        label: '甲方',
+        value: customer
+      },
+      {
+        label: '备注',
+        value: notes
+      }]
+      goodsList.push({title, list})
+    }
     next(vm => {
-      vm.groupData = data
+      vm.contentList = content
+      vm.goodsList = goodsList
       vm.title = title
     })
   },

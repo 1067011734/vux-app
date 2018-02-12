@@ -43,11 +43,11 @@ export default {
   },
   methods: {
     _go (item) {
-      const {title} = item
-      this.$axios.get(`${serverURL}/task_c`, {params: {}}).then(response => {
+      const {title, task_b_id} = item
+      this.$axios.get(`${serverURL}/task_c`, {params: {task_b_id}}).then(response => {
         const json = response.data
         const {data} = json
-        this.$router.push({name: 'homeContent', params: {data: data[0], title}})
+        this.$router.push({name: 'homeContent', params: {data, title}})
       })
     }
   }
