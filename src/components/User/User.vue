@@ -55,9 +55,6 @@ export default {
   },
   methods: {
     _logout () {
-      const storage = window.localStorage
-      storage.yousi = ''
-      console.info(storage)
       this.$router.push({name: 'login', params: {}})
     },
     _upload () {

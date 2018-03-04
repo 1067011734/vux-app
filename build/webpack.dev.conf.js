@@ -58,7 +58,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       app.get('/api/task_c', (req, res) => {
         res.json({
           errno: 0,
-          data: contentData.find(x => Number(x.task_b_id) === Number(req.query.task_b_id))
+          data: contentData.filter(x => Number(x.task_b_id) === Number(req.query.task_b_id))
         })
       })
     }

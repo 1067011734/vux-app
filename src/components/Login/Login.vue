@@ -59,8 +59,8 @@ export default {
       })
       .then((response) => {
         const json = response.data
-        const {data} = json
-        if (json.errno) {
+        const {data, errno} = json
+        if (errno) {
           this.$vux.alert.show({
             title: '警告',
             content: '用户名密码账号不匹配!'
@@ -70,21 +70,10 @@ export default {
         const loginInfo = {...params}
         this.$root.loginInfo = loginInfo
         this.$router.push({name: 'home', params: {data: data}})
-        const storage = window.localStorage
-        storage.yousi = JSON.stringify(loginInfo)
       })
       .catch(() => {
         // this.$router.push({name: 'homeMain', params: {}})
       })
-    },
-    _setup () {
-      const yousi = window.localStorage.yousi
-      if (yousi) {
-        const params = JSON.parse(yousi)
-        this._query(params)
-      } else {
-        this._getList()
-      }
     }
   }
 }

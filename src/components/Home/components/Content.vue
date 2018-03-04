@@ -3,9 +3,12 @@
   <div class="home-content">
    <x-header :right-options="{showMore: true}" @on-click-more="meuns.isShow = true">{{title}}</x-header>
      <group>
-      <div v-for="item in contentList" >
-       <cell :title="item.title" :value="item.value"></cell>
-      </div>
+       <cell title="责任人" :value="contentList.name"></cell>
+       <cell title="岗位" :value="contentList.dept"></cell>
+       <cell title="时间" :value="contentList.date"></cell>
+       <cell title="主题" :value="contentList.theme"></cell>
+       <cell title="编号" :value="contentList.vou"></cell>
+       
        <x-switch title="详情" :value-map="[false, true]" v-model="goodsFlag"></x-switch>
      </group>
       <div v-if="goodsFlag">
@@ -28,9 +31,7 @@ import {XHeader, Group, Cell, XSwitch, FormPreview, Actionsheet} from 'vux'
 export default {
   data () {
     return {
-      contentList: [
-
-      ],
+      contentList: {},
       goodsList: [],
       title: '消息',
       goodsFlag: false,
@@ -56,9 +57,7 @@ export default {
     Actionsheet
   },
   beforeRouteEnter (to, from, next) {
-    const {data, title} = to.params
-    const {content, goods} = data
-    console.info(content, goods)
+    const {content, goods} = to.params
     const goodsList = []
     for (let item of goods) {
       const {customer, name, notes, number, price} = item
@@ -85,7 +84,7 @@ export default {
     next(vm => {
       vm.contentList = content
       vm.goodsList = goodsList
-      vm.title = title
+      vm.title = content.title
     })
   },
   watch: {

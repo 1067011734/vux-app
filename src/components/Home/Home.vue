@@ -7,7 +7,7 @@
      <group>
          <cell is-link :title="item.title"  v-for="item in groupData" :key="item.id"  @click.native="_go(item)">
            <div class="badge-value">
-            <span class="vertical-middle">{{item.value}}</span>
+            <!-- <span class="vertical-middle">{{item.value}}</span> -->
             <badge :text="item.badge"></badge>
            </div>
          </cell>

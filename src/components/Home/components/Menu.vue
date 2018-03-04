@@ -4,8 +4,8 @@
      <group>
          <cell is-link :title="item.title"  v-for="item in groupData" :key="item.id"  @click.native="_go(item)">
            <div class="badge-value">
-            <span class="vertical-middle">{{item.value}}</span>
-            <badge :text="item.badge"></badge>
+            <span class="vertical-middle">{{item.date}}</span>
+            <badge :text="item.name"></badge>
            </div>
          </cell>
      </group>
@@ -43,11 +43,11 @@ export default {
   },
   methods: {
     _go (item) {
-      const {title, task_b_id} = item
+      let {task_b_id} = item
       this.$axios.get(`${serverURL}/task_c`, {params: {task_b_id}}).then(response => {
         const json = response.data
         const {data} = json
-        this.$router.push({name: 'homeContent', params: {data, title}})
+        this.$router.push({name: 'homeContent', params: {content: item, goods: data}})
       })
     }
   }
