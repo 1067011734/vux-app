@@ -41,13 +41,9 @@ export default {
     if (data) {
       next(vm => {
         let _badgeFlag = vm.$store.state.app.badgeFlag
-        let _tabbarFlag = vm.$store.state.app.tabbarFlag
         let _canGroupData = Boolean(data.length)
         if (_canGroupData !== _badgeFlag) {
           vm.$store.commit('appBadgeFlagToggle')
-        }
-        if (!_tabbarFlag) {
-          vm.$store.commit('appTabbarFlagShow')
         }
         vm.groupData = data
       })

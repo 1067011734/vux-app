@@ -8,6 +8,7 @@ import 'common/stylus/index.styl'
 import axios from 'axios'
 import store from './store'
 import {AlertPlugin, LoadingPlugin} from 'vux'
+import echarts from 'echarts'
 
 Vue.use(AlertPlugin)
 Vue.use(LoadingPlugin)
@@ -30,6 +31,7 @@ axios.interceptors.response.use((response) => {
   return Promise.reject(error)
 })
 Vue.prototype.$axios = axios
+Vue.prototype.$echarts = echarts
 
 FastClick.attach(document.body)
 

@@ -12,28 +12,28 @@ const routes = [
     path: '/home',
     name: 'home',
     component: resolve => {
-      require(['../components/Home/Home'], resolve)
+      require(['../views/Home/Home'], resolve)
     },
     children: [
       {
         path: 'menu',
         name: 'homeMenu',
         component: resolve => {
-          require(['../components/Home/components/Menu'], resolve)
+          require(['../views/Home/views/Menu'], resolve)
         },
         children: [
           {
             path: 'content',
             name: 'homeContent',
             component: resolve => {
-              require(['../components/Home/components/Content'], resolve)
+              require(['../views/Home/views/Content'], resolve)
             },
             children: [
               {
                 path: 'menu',
                 name: 'homeSubmit',
                 component: resolve => {
-                  require(['../components/Home/components/Submit'], resolve)
+                  require(['../views/Home/views/Submit'], resolve)
                 }
               }
             ]
@@ -49,22 +49,22 @@ const routes = [
     ]
   },
   {
-    path: '/work',
+    path: '/dashboard',
     component: resolve => {
-      require(['../components/Work/Work'], resolve)
+      require(['../views/Dashboard/Dashboard'], resolve)
     }
   },
   {
     path: '/user',
     component: resolve => {
-      require(['../components/User/User'], resolve)
+      require(['../views/User/User'], resolve)
     }
   },
   {
     path: '/login',
     name: 'login',
     component: resolve => {
-      require(['../components/Login/Login'], resolve)
+      require(['../views/Login/Login'], resolve)
     }
   }
 ]

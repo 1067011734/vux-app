@@ -28,12 +28,13 @@ let webpackConfig = {
       '@': resolve('src'),
       'common': path.resolve(__dirname, '../src/common'),
       'components': path.resolve(__dirname, '../src/components'),
+      'views': path.resolve(__dirname, '../src/views'),
       'utils': path.resolve(__dirname, '../src/utils')
     }
   },
   module: {
     rules: [
-      ...(config.dev.useEslint? [{
+      ...(config.dev.useEslint ? [{
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
@@ -80,7 +81,6 @@ let webpackConfig = {
     ]
   }
 }
-
 
 module.exports = vuxLoader.merge(webpackConfig, {
   plugins: ['vux-ui', 'progress-bar', 'duplicate-style']

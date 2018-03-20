@@ -15,9 +15,6 @@ export default new Vuex.Store({
   mutations: {
     appBadgeFlagToggle (state, flag) {
       state.app.badgeFlag = !state.app.badgeFlag
-    },
-    appTabbarFlagShow (state, flag) {
-      state.app.tabbarFlag = true
     }
   }
 })
