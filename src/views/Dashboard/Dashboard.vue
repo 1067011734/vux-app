@@ -4,13 +4,13 @@
   <!-- <swiper :autoplay="true"> -->
   <swiper>
     <swiper-item>
-       <img src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" alt="" srcset="">
+       <img src="../../assets/1.jpg" alt="" srcset="">
     </swiper-item>
     <swiper-item>
-      <img src="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" alt="" srcset="">
+      <img src="../../assets/2.jpg" alt="" srcset="">
     </swiper-item>
     <swiper-item>
-      <img src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg" alt="" srcset="">
+      <img src="../../assets/3.jpg"alt="" srcset="">
     </swiper-item>
   </swiper>
   <div id="myChart" style="height:300px"></div>
