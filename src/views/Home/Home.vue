@@ -40,11 +40,11 @@ export default {
     let {data} = to.params
     if (data) {
       next(vm => {
-        let _badgeFlag = vm.$store.state.app.badgeFlag
-        let _canGroupData = Boolean(data.length)
-        if (_canGroupData !== _badgeFlag) {
-          vm.$store.commit('appBadgeFlagToggle')
+        let result = 0
+        for (let item of data) {
+          result += Number(item.badge)
         }
+        vm.$store.state.app.badge = result
         vm.groupData = data
       })
     } else {

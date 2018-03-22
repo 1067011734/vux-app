@@ -4,7 +4,7 @@
      <router-view></router-view>
    </keep-alive>
     <tabbar style="position:fixed;z-index:99">
-      <tabbar-item selected :link="{path:'/home'}"  :badge='badgeFlag?"new":""'>
+      <tabbar-item selected :link="{path:'/home'}"  :badge='badge? String(badge) : "" '>
       <i slot="icon" class="icon-msg iconfont"></i>
       <span slot="label">消息</span>
       </tabbar-item>
@@ -40,51 +40,33 @@ export default {
   computed: {
     ...mapState({
       tabbarFlag: state => state.app.tabbarFlag,
-      badgeFlag: state => state.app.badgeFlag
+      badgeFlag: state => state.app.badgeFlag,
+      badge: state => state.app.badge
     })
   }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-html, body, .router-view {
+html, body, .router-view
   background-color: #fbfbfb;
-}
-
-#app {
+#app 
   margin-bottom: 55px;
-
-  .badge-value {
+  .badge-value
     display: inline-block !important;
-  }
-
-  .vertical-middle {
+  .vertical-middle 
     vertical-align: middle;
-  }
-
-  .weui-tabbar {
+  .weui-tabbar 
     background-color: #fff;
-  }
-
-  .vux-header {
+  .vux-header 
     background-image: radial-gradient(circle 248px at center, #3689de 0%, #3f8bd8 47%, #39699a 100%);
     background-color: #3689de;
-
-    .vux-header-title {
+    .vux-header-title 
       letter-spacing: 0.2em;
-    }
-  }
-
-  .weui-tabbar__item.weui-bar__item_on {
-    .weui-tabbar__label {
-      color: #5E86AF;
-    }
-
-    .weui-tabbar__icon {
-      i {
-        color: #5E86AF;
-      }
-    }
-  }
-}
+  .weui-tabbar__item.weui-bar__item_on
+    .weui-tabbar__label
+      color: #5E86AF
+    .weui-tabbar__icon
+      i
+       color: #5E86AF;
 </style>

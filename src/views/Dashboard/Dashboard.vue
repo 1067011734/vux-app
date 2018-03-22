@@ -1,35 +1,39 @@
 <template>
  <div>
    <xHeader :left-options="{showBack: false}">主控面板</xHeader>
-   <carousel  :perPage="1" :minSwipeDistance="0">
-    <slide>
-     <img src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" alt="" srcset="">
-    </slide>
-    <slide>
+  <!-- <swiper :autoplay="true"> -->
+  <swiper>
+    <swiper-item>
+       <img src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" alt="" srcset="">
+    </swiper-item>
+    <swiper-item>
       <img src="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" alt="" srcset="">
-    </slide>
-    <slide>
+    </swiper-item>
+    <swiper-item>
       <img src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg" alt="" srcset="">
-    </slide>
-  </carousel>
-   <div id="myChart" :style="{height: '300px'}"></div>
+    </swiper-item>
+  </swiper>
+  <div id="myChart" style="height:300px"></div>
  </div>
- </div>
+
 </template>
 
 <script type="text/ecmascript-6">
 import { XHeader } from 'vux'
-import { Carousel, Slide } from 'vue-carousel'
+import { Swiper, SwiperItem } from 'components/Swiper'
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      message: {
+        a: 1
+      }
     }
   },
   components: {
     XHeader,
-    Carousel,
-    Slide
+    Swiper,
+    SwiperItem
   },
   mounted () {
     this.drawBar()
@@ -112,13 +116,18 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-.VueCarousel-slide
- height: 150px
- img
-  height: 100%
-  width:100%
-.VueCarousel-pagination
- position: absolute
- left: 0
- bottom: 0  
+.VueCarousel-slide {
+  height: 150px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.VueCarousel-pagination {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 </style>
