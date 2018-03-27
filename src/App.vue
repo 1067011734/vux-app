@@ -39,8 +39,6 @@ export default {
   methods: {},
   computed: {
     ...mapState({
-      tabbarFlag: state => state.app.tabbarFlag,
-      badgeFlag: state => state.app.badgeFlag,
       badge: state => state.app.badge
     })
   }
