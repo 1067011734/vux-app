@@ -1,6 +1,5 @@
 <template>
- <div>
-  <div class="home-content">
+ <div class="wrap">
    <x-header :right-options="{showMore: true}" @on-click-more="meuns.isShow = true">{{title}}</x-header>
      <group>
        <cell title="责任人" :value="contentList.name"></cell>
@@ -21,7 +20,6 @@
        <router-view class="router-view"></router-view>
       </transition>
       <actionsheet v-model="meuns.isShow" :menus="meuns.list" @on-click-menu="menuClick"></actionsheet>
- </div>
 </div>
 </template>
 
@@ -101,10 +99,8 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-.home-content
- .content-wrap
-  flex 1
- .weui-form-preview__btn_primary 
+.wrap
+ .weui-form-preview__btn_primary  
   color: #FF9900
   letter-spacing: 4px
 </style>

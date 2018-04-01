@@ -1,7 +1,7 @@
 <template>
  <div id="app">
    <keep-alive>
-     <router-view></router-view>
+     <router-view class="page"></router-view>
    </keep-alive>
     <tabbar style="position:fixed;z-index:99">
       <tabbar-item selected :link="{path:'/home'}"  :badge='badge? String(badge) : "" '>
@@ -11,6 +11,10 @@
       <tabbar-item :link="{path:'/dashboard'}">
       <i slot="icon" class="icon-dashboard iconfont"></i>
       <span slot="label" >报表</span>
+      </tabbar-item>
+      <tabbar-item :link="{path:'/atlas'}">
+      <i slot="icon" class="icon-tupian iconfont"></i>
+      <span slot="label" >图集</span>
       </tabbar-item>
       <tabbar-item :link="{path:'/user'}">
       <i slot="icon" class="icon-weibiaoti1 iconfont"></i>
@@ -50,6 +54,27 @@ html, body, .router-view
   background-color: #fbfbfb;
 #app 
   margin-bottom: 55px;
+  .page
+   position absolute
+   width 100%
+   top 0
+   bottom  54px
+   .router-view
+    position fixed
+    left 0
+    top 0
+    bottom 48px
+    z-index 101
+    width 100%
+    height 100%
+    overflow auto
+    &.move-enter-active, &.move-leave-active
+      transition all 0.2s linear
+    &.move-enter, &.move-leave-active
+      transform translate3d(100%, 0, 0)
+  .router-view::-webkit-scrollbar
+    width 0
+    height 0
   .badge-value
     display: inline-block !important;
   .vertical-middle 

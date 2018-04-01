@@ -66,6 +66,13 @@ const routes = [
     component: resolve => {
       require(['../views/Login/Login'], resolve)
     }
+  },
+  {
+    path: '/atlas',
+    name: 'atlas',
+    component: resolve => {
+      require(['../views/Atlas/Atlas'], resolve)
+    }
   }
 ]
 const router = new Router({

@@ -9,6 +9,15 @@ import axios from 'axios'
 import store from './store'
 import {AlertPlugin, LoadingPlugin} from 'vux'
 import echarts from 'echarts'
+import VueLazyload from 'vue-lazyload'
+
+// or with options
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  // error: 'dist/error.png',
+  loading: require('@/assets/loading-spin.svg'),
+  attempt: 1
+})
 
 Vue.use(AlertPlugin)
 Vue.use(LoadingPlugin)
