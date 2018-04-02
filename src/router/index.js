@@ -30,7 +30,7 @@ const routes = [
             },
             children: [
               {
-                path: 'menu',
+                path: 'submit',
                 name: 'homeSubmit',
                 component: resolve => {
                   require(['../views/Home/views/Submit'], resolve)
@@ -48,6 +48,36 @@ const routes = [
       // {
     ]
   },
+  // {
+  //   path: '/home',
+  //   name: 'home',
+  //   component: resolve => {
+  //     require(['../views/Home/Home'], resolve)
+  //   },
+  //   children: [
+  //     {
+  //       path: 'menu',
+  //       name: 'homeMenu',
+  //       component: resolve => {
+  //         require(['../views/Home/views/Menu'], resolve)
+  //       }
+  //     },
+  //     {
+  //       path: 'content',
+  //       name: 'homeContent',
+  //       component: resolve => {
+  //         require(['../views/Home/views/Content'], resolve)
+  //       }
+  //     },
+  //     {
+  //       path: 'submit',
+  //       name: 'homeSubmit',
+  //       component: resolve => {
+  //         require(['../views/Home/views/Submit'], resolve)
+  //       }
+  //     }
+  //   ]
+  // },
   {
     path: '/dashboard',
     component: resolve => {

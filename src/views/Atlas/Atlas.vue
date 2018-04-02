@@ -37,6 +37,13 @@ export default {
       this.scroll = new BScroll(this.$refs.wrap)
     })
   },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      if (vm.scroll) {
+        vm.scroll.refresh()
+      }
+    })
+  },
   components: {}
 }
 </script>

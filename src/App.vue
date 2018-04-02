@@ -63,18 +63,14 @@ html, body, .router-view
     position fixed
     left 0
     top 0
-    bottom 48px
     z-index 101
     width 100%
     height 100%
-    overflow auto
+    overflow hidden
     &.move-enter-active, &.move-leave-active
       transition all 0.2s linear
     &.move-enter, &.move-leave-active
       transform translate3d(100%, 0, 0)
-  .router-view::-webkit-scrollbar
-    width 0
-    height 0
   .badge-value
     display: inline-block !important;
   .vertical-middle 
@@ -91,5 +87,7 @@ html, body, .router-view
       color: #5E86AF
     .weui-tabbar__icon
       i
-       color: #5E86AF;
+       color: #5E86AF
+.vux-loading
+ position relative    
 </style>

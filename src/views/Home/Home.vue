@@ -13,7 +13,9 @@
          </cell>
      </group>
     <transition name="move">
+      <keep-alive>
       <router-view class="router-view"></router-view>
+      </keep-alive>
     </transition>  
   </vue-pull-refresh>
  </div>
@@ -41,7 +43,6 @@ export default {
   beforeRouteEnter (to, from, next) {
     let { data } = to.params
     if (data) {
-      console.info(data)
       next(vm => {
         let result = 0
         for (let item of data) {

@@ -22,14 +22,16 @@ Vue.use(VueLazyload, {
 Vue.use(AlertPlugin)
 Vue.use(LoadingPlugin)
 axios.defaults.timeout = 4000
-axios.interceptors.request.use(conf => {
-  Vue.$vux.loading.show({
-    text: 'Loading'
-  })
-  return conf
-})
+// axios.interceptors.request.use(conf => {
+//   Vue.$vux.loading.show({
+//     text: 'Loading',
+//     position: 'absolute',
+//     show: false
+//   })
+//   return conf
+// })
 axios.interceptors.response.use((response) => {
-  Vue.$vux.loading.hide()
+  // Vue.$vux.loading.hide()
   return response
 }, (error) => {
   Vue.$vux.loading.hide()
