@@ -1,8 +1,6 @@
 <template>
  <div  class="wrap">
-   <div class="header">
-<x-header :right-options="{showMore: true}" @on-click-more="meuns.isShow = true">{{title}}</x-header>
-   </div>
+   <x-header :right-options="{showMore: true}" @on-click-more="meuns.isShow = true">{{title}}</x-header>
    <div class="content-wrap" ref="scroll">
      <div class="content">
        
@@ -102,7 +100,6 @@ export default {
       this.$nextTick(() => {
         if (this.scroll) {
           this.scroll.refresh()
-          console.info('refresh')
         }
       })
     }
@@ -115,7 +112,7 @@ export default {
         // bounce: false,
         // momentum: false
       })
-      console.info(this.scroll)
+      // console.info(this.scroll)
     })
   },
   methods: {
@@ -131,6 +128,7 @@ export default {
   .content-wrap
     width: 100%;
     height: 93%
+    // height 300px
     overflow: hidden;
     .weui-cells
       margin-top 0 
